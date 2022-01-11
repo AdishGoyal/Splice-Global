@@ -1,0 +1,23 @@
+<div  class="container-fluid">
+    <h4>Splice Global Album</h4>
+    <select class="form-control form-control-sm w-50" (change)="getImage($event)">
+        <option value="">Choose Image... (Fixed Bar)</option>
+        <option *ngFor="let album of albumList" value="{{album['url']}}">{{album['title']}}</option>
+    </select>
+    <br>
+    <input list="brow" placeholder="Choose Image... (Searchable Bar)" (change)="getImage($event)" class="form-control form-control-sm w-50">
+    <datalist id="brow">
+        <option *ngFor="let album of albumList" value="{{album['url']}}">{{album['title']}}</option>
+    </datalist>
+    <hr>
+</div>
+
+<div class="row w-100" *ngIf="imgSrc != ''">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <img src="{{imgSrc}}" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="card mt-5 shadow">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Login</h5><hr>
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+                        <input type="text" class="form-control" placeholder="Enter Mobile Number" formControlName="mobile"
+                        [ngClass]="{ 'is-invalid': LoginSubmitted && f['mobile'].errors, 'is-valid': LoginSubmitted && !f['mobile'].errors}">
+                        <div *ngIf="LoginSubmitted && f['mobile'].errors" class="invalid-feedback">
+                            <div *ngIf="f['mobile'].errors['required']">Contact Number is required</div>
+                            <div *ngIf="f['mobile'].errors['pattern']">Enter Valid Number</div>
+                        </div>
+
+                        <input type="password" class="form-control mt-3" placeholder="Enter Password" formControlName="password"
+                        [ngClass]="{ 'is-invalid': LoginSubmitted && f['password'].errors, 'is-valid': LoginSubmitted && !f['password'].errors}">
+                        <div *ngIf="LoginSubmitted && f['password'].errors" class="invalid-feedback">
+                            <div *ngIf="f['password'].errors['required']">Password is required</div>
+                        </div>
+                        
+                        <input type="submit" class="btn btn-primary btn-sm mt-3" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

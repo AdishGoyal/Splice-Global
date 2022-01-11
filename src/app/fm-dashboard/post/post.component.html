@@ -1,0 +1,8 @@
+<div class="container-fluid">
+    <h4>Splice Global Post</h4><hr>
+    <div class="alert alert-info" *ngFor="let post of postList">
+        <h5>{{post['title']}}</h5>
+        <p>{{post['body']}}</p>
+        <span class="text-primary float-end" style="margin-top: -20px; cursor:pointer;" routerLink="/dashboard/viewPost" [state]="{ id: post['id'] }">View Post</span>
+    </div>
+</div>
